@@ -1,7 +1,11 @@
 import React, { createContext, useContext, useState } from 'react';
 
 
-// Define the type for the Employee object
+
+/**
+ * Type definition for an employee object.
+ */
+
 type Employee = {
   name: string;
   department: string;
@@ -11,7 +15,11 @@ type Employee = {
 };
 
 
-// Define the type for the context data
+
+/**
+ * Type definition for the context data containing the array of employees and a function to update it.
+ */
+
 type EmployeeContextType = {
   employees: Employee[];
   setEmployees: React.Dispatch<React.SetStateAction<Employee[]>>;
@@ -19,37 +27,54 @@ type EmployeeContextType = {
 
 
 
-// Create a context for managing employee data
+/**
+ * Creates a context for managing employee data.
+ */
+
+
 const EmployeeContext = createContext<EmployeeContextType | undefined>(undefined);
 
 
 
-// Provider component for managing the state of employees
+
+/**
+ * Provider component for managing the state of employees.
+ * @param children - The child elements to render.
+ */
+
+
 export const EmployeeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // State to hold the array of employees
   const [employees, setEmployees] = useState<Employee[]>([]);
 
   return (
-    // Provide the employee context with the current array of employees and the function to update it
     <EmployeeContext.Provider value={{ employees, setEmployees }}>
       {children}
     </EmployeeContext.Provider>
   );
 };
 
-// Custom hook to consume the employee context
+
+
+/**
+ * Custom hook to consume the employee context.
+ * @returns The employee context data.
+ */
+
 export const useEmployeeContext = () => {
-  // Access the context containing employee data
   const context = useContext(EmployeeContext);
-  // Throw an error if the hook is used outside of the EmployeeProvider
   if (!context) {
     throw new Error('useEmployeeContext must be used within an EmployeeProvider');
   }
   return context;
 };
 
-// Function to add a new employee to the array of employees
+
+/**
+ * Adds a new employee to the array of employees.
+ * @param newEmployee - The new employee to add.
+ * @param setEmployees - The function to update the array of employees.
+ */
+
 export const addEmployee = (newEmployee: Employee, setEmployees: React.Dispatch<React.SetStateAction<Employee[]>>) => {
-  // Update the array of employees with the new employee added
   setEmployees(prevEmployees => [...prevEmployees, newEmployee]);
 };

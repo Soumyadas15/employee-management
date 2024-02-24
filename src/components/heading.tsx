@@ -1,3 +1,7 @@
+/**
+ * A reusable component for displaying headings
+ */
+
 interface HeadingProps{
     title: string;
     subHeading: string;

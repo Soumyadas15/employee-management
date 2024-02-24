@@ -2,12 +2,21 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom"
 
 
+/**
+ * SidebarItem Props
+ * @param label - The text to display in the sidebar item
+ * @param icon - The icon to display in the sidebar item
+ * @param to - The route to navigate to when the sidebar item is clicked
+ * @param highlight - The CSS class to apply to the sidebar item when the current route matches the `to` prop
+ */
+
 interface SidebarItemProps {
     label: string;
     icon?: React.ReactNode;
     to: string;
     highlight?: string;
 }
+
 
 export const SidebarItem = ({
     label,

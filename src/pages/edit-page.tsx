@@ -11,7 +11,7 @@ import toast from 'react-hot-toast';
 
 
 
-const EditPage: React.FC = () => {
+const EditPage = () => {
     // Get the employee ID from the URL parameters
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();

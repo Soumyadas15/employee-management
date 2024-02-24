@@ -4,6 +4,21 @@ import { Briefcase, Calendar, Code, Trash2, User } from "lucide-react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
+
+
+/**
+ * Renders an employee card with details such as name, department, experience, and birthdate.
+ * The card also includes an edit button and a delete button.
+ * @param name - The name of the employee.
+ * @param birthdate - The birthdate of the employee.
+ * @param department - The department of the employee.
+ * @param experience - The experience of the employee in years.
+ * @param showEditButton - A boolean indicating whether to show the edit button.
+ * @param index - The index of the employee in the list.
+ */
+
+
+
 interface EmployeeCardProps {
     name: string;
     birthdate: string;
@@ -43,17 +58,10 @@ export const EmployeeCard = ({
     return (
 
         <div>
-            <div className="
-                    w-full 
-                    rounded-xl 
-                    bg-neutral-100 
-                    border-neutral-200 
-                    p-5 
-                    shadow-sm 
-                    border-[1px]
+            <div className="w-full rounded-xl bg-neutral-100 border-neutral-200 p-5 shadow-sm border-[1px]
             ">
                 <div className="flex flex-col gap-3 items-start">
-                    <div className="flex gap-2 items-center justify-between w-full justify-between">
+                    <div className="flex gap-2 items-center w-full justify-between">
                         <div className="flex items-center gap-2">
                             <div><User/></div>
                             <div className="font-bold text-xl">{name}</div>
