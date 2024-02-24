@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { CalendarIcon } from "lucide-react";
 import { format } from "date-fns"
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils";;
 import { addEmployee, useEmployeeContext } from "@/contexts/employee-context";
 import { Calendar } from "@/components/ui/calendar";
 import toast from "react-hot-toast";
