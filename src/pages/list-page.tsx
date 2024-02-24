@@ -3,7 +3,16 @@ import { Heading } from "@/components/heading";
 import { useEmployeeContext } from "@/contexts/employee-context";
 import { format } from 'date-fns';
 
+
+/**
+ * Renders a list of employees
+ */
+
+
 const ListPage = () => {
+
+    // Getting the array of employees from global context
+
     const { employees } = useEmployeeContext();
 
     return (
@@ -12,9 +21,15 @@ const ListPage = () => {
                 title="My employees"
                 subHeading="All employees working in the company"
             />
+
             <div className="mt-6 h-[87%] scrollbar-hide w-full overflow-hidden overflow-y-scroll">
-                <div className="h-full w-full rounded-md">
+
+                <div className="h-full w-full rounded-md">]
+
                     <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-2">
+
+                        {/* Mapping through the array of employees */}
+
                         {employees.map((employee, index) => (
                             <EmployeeCard 
                                 key={index} 
@@ -30,7 +45,9 @@ const ListPage = () => {
                     </div>
                     
                 </div>    
+
             </div>
+
         </div>
     )
 }
